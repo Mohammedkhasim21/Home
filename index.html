@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sustainability Tech Solutions</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background-color: #0f172a;
+      color: #fff;
+      overflow-x: hidden;
+    }
+    .hero-bg {
+      background: radial-gradient(ellipse at center, #0f766e 0%, #0f172a 100%);
+    }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .glass-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 40px rgba(0, 255, 255, 0.2);
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      justify-content: center;
+      align-items: center;
+      z-index: 50;
+    }
+    .modal-content {
+      background: #1e293b;
+      padding: 2rem;
+      border-radius: 1rem;
+      width: 90%;
+      max-width: 500px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+  </style>
+</head>
+<body>
+  <section class="hero-bg h-screen flex items-center justify-center relative">
+    <canvas id="three-canvas" class="absolute top-0 left-0 w-full h-full opacity-20"></canvas>
+    <div class="z-10 text-center px-4">
+      <h1 class="text-5xl md:text-7xl font-bold mb-6 text-cyan-300">Sustainability Tech Solutions</h1>
+      <p class="text-xl md:text-2xl text-gray-300 mb-8">Innovating for a Greener, Smarter Tomorrow</p>
+      <a href="#projects" class="inline-block bg-cyan-600 hover:bg-cyan-500 text-white px-8 py-4 rounded-full font-semibold transition">Discover Our Projects</a>
+    </div>
+  </section>
+
+  <section id="projects" class="py-24 bg-slate-900 text-center">
+    <h2 class="text-4xl font-bold text-white mb-16">Our Visionary Projects</h2>
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
+      <div class="glass-card rounded-xl p-6">
+        <img src="https://images.unsplash.com/photo-1503551723145-6c0407427456" class="rounded-xl mb-6 h-48 w-full object-cover" />
+        <h3 class="text-2xl text-cyan-300 font-semibold mb-2">SmartGrid X</h3>
+        <p class="text-gray-300 mb-4">A smart grid system optimizing renewable energy using AI.</p>
+        <button onclick="openModal('SmartGrid X')" class="bg-cyan-600 hover:bg-cyan-500 text-white px-6 py-2 rounded-full">Manage Access</button>
+      </div>
+      <div class="glass-card rounded-xl p-6">
+        <img src="https://images.unsplash.com/photo-1508514177221-188b645fd5af" class="rounded-xl mb-6 h-48 w-full object-cover" />
+        <h3 class="text-2xl text-cyan-300 font-semibold mb-2">CarbonZero AI</h3>
+        <p class="text-gray-300 mb-4">Real-time carbon tracking and reduction powered by AI.</p>
+        <button onclick="openModal('CarbonZero AI')" class="bg-cyan-600 hover:bg-cyan-500 text-white px-6 py-2 rounded-full">Manage Access</button>
+      </div>
+      <div class="glass-card rounded-xl p-6">
+        <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e" class="rounded-xl mb-6 h-48 w-full object-cover" />
+        <h3 class="text-2xl text-cyan-300 font-semibold mb-2">EcoLife App</h3>
+        <p class="text-gray-300 mb-4">An app to help users adopt and maintain sustainable habits.</p>
+        <button onclick="openModal('EcoLife App')" class="bg-cyan-600 hover:bg-cyan-500 text-white px-6 py-2 rounded-full">Manage Access</button>
+      </div>
+      <div class="glass-card rounded-xl p-6">
+        <img src="https://images.unsplash.com/photo-1551288049-b1f3c21d9e59" class="rounded-xl mb-6 h-48 w-full object-cover" />
+        <h3 class="text-2xl text-cyan-300 font-semibold mb-2">GreenChart Analytics</h3>
+        <p class="text-gray-300 mb-4">Advanced analytics for sustainability metrics and insights.</p>
+        <a href="https://chart.sustainabilityittech.in" target="_blank" class="inline-block bg-cyan-600 hover:bg-cyan-500 text-white px-6 py-2 rounded-full">Visit GreenChart</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-slate-800 py-16 text-center text-white">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 px-4">
+      <div><h3 class="text-4xl font-bold text-cyan-400">500+</h3><p class="text-gray-300 mt-2">Users Managed</p></div>
+      <div><h3 class="text-4xl font-bold text-cyan-400">99.9%</h3><p class="text-gray-300 mt-2">Uptime Guaranteed</p></div>
+      <div><h3 class="text-4xl font-bold text-cyan-400">10K+</h3><p class="text-gray-300 mt-2">Secure Transactions</p></div>
+    </div>
+  </section>
+
+  <div id="accessModal" class="modal">
+    <div class="modal-content text-white">
+      <h3 id="modalTitle" class="text-2xl font-bold mb-4"></h3>
+      <label class="block text-left mb-2">User Email</label>
+      <input type="email" class="w-full p-3 mb-4 bg-slate-700 text-white rounded-md border border-cyan-400 focus:outline-none" />
+      <label class="block text-left mb-2">Role</label>
+      <select class="w-full p-3 mb-6 bg-slate-700 text-white rounded-md border border-cyan-400 focus:outline-none">
+        <option>Viewer</option><option>Editor</option><option>Admin</option>
+      </select>
+      <div class="flex justify-end gap-4">
+        <button onclick="closeModal()" class="bg-gray-500 px-4 py-2 rounded-full hover:bg-gray-600">Cancel</button>
+        <button class="bg-cyan-600 px-4 py-2 rounded-full hover:bg-cyan-500">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="bg-slate-900 text-center text-gray-400 py-10">
+    <h3 class="text-xl font-semibold text-white mb-4">Sustainability Tech Solutions</h3>
+    <p class="mb-4">Driving innovation for a sustainable future.</p>
+    <div class="flex justify-center gap-6 mb-4 text-2xl">
+      <a href="https://twitter.com" target="_blank" class="hover:text-cyan-400 transition"><i class="fab fa-twitter"></i></a>
+      <a href="https://github.com" target="_blank" class="hover:text-cyan-400 transition"><i class="fab fa-github"></i></a>
+      <a href="https://linkedin.com" target="_blank" class="hover:text-cyan-400 transition"><i class="fab fa-linkedin"></i></a>
+    </div>
+    <p class="text-sm text-gray-500">© 2025 Sustainability Tech Solutions. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('three-canvas'), alpha: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    const sphere = new THREE.Mesh(new THREE.SphereGeometry(5, 32, 32), new THREE.MeshBasicMaterial({ color: 0x22d3ee, wireframe: true }));
+    scene.add(sphere);
+    camera.position.z = 12;
+    function animate() {
+      requestAnimationFrame(animate);
+      sphere.rotation.y += 0.002;
+      renderer.render(scene, camera);
+    }
+    animate();
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+    function openModal(projectName) {
+      document.getElementById('modalTitle').textContent = `Manage Access for ${projectName}`;
+      document.getElementById('accessModal').style.display = 'flex';
+    }
+    function closeModal() {
+      document.getElementById('accessModal').style.display = 'none';
+    }
+    window.onclick = function (e) {
+      const modal = document.getElementById('accessModal');
+      if (e.target === modal) closeModal();
+    };
+  </script>
+</body>
+</html>
